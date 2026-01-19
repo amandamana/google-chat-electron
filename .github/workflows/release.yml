@@ -1,11 +1,6 @@
 name: release
 
-on:
-  push:
-    branches:
-      - main
-    tags:
-      - '*'
+on: workflow_dispatch
 
 jobs:
 
