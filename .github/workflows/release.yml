@@ -51,5 +51,3 @@ jobs:
           name: mac-installers
           path: ./dist/installers/*.*
           overwrite: true
-          path: ./dist/installers/*.*
-          overwrite: true
