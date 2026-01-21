@@ -8,14 +8,14 @@
   "author": "amandamana",
   "license": "GNU GPLv3",
   "main": "lib/main/index.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "prestart": "npm run ts",
     "start": "electron .",
     "clean:dist": "rimraf ./dist",
     "clean:lib": "rimraf ./lib",
     "prets": "npm run clean:lib",
-    "ts": "tsc && node esbuild.config.js",
+    "ts": "tsc,
     "prepack:mac": "npm run clean:dist && npm run ts",
     "pack:mac": "electron-packager . --platform=darwin --arch=x64 --asar --overwrite --out=./dist/ --icon=./resources/icons/normal/mac.icns",
     "build:mac-zip": "bash ./mac/installer-zip.sh"
