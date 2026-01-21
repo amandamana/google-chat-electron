@@ -6,7 +6,7 @@ jobs:
 
   release-mac:
     name: release-mac
-    runs-on: macos-13
+    runs-on: macos-14
     timeout-minutes: 10
 
     steps:
