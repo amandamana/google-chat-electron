@@ -1,14 +1,14 @@
 {
   "name": "google-chat-electron",
-  "version": "3.3.1",
+  "version": "3.3.1aa",
   "description": "Unofficial desktop app for Google Chat.",
   "private": true,
   "repository": "https://github.com/zviryatko/google-chat-electron",
   "homepage": "https://github.com/zviryatko/google-chat-electron",
-  "author": "zviryatko",
+  "author": "amandamana",
   "license": "GNU GPLv3",
   "main": "lib/main/index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "prestart": "npm run ts",
     "start": "electron .",
@@ -16,18 +16,9 @@
     "clean:lib": "rimraf ./lib",
     "prets": "npm run clean:lib",
     "ts": "tsc && node esbuild.config.js",
-    "prepack:windows": "npm run clean:dist && npm run ts",
-    "pack:windows": "electron-packager . --platform=win32 --arch=x64 --asar --overwrite --out=./dist/ --icon=./resources/icons/normal/windows.ico",
-    "build:windows": "node windows/installer.cjs",
     "prepack:mac": "npm run clean:dist && npm run ts",
     "pack:mac": "electron-packager . --platform=darwin --arch=x64 --asar --overwrite --out=./dist/ --icon=./resources/icons/normal/mac.icns",
-    "pack:mac-arm": "electron-packager . --platform=darwin --arch=arm64 --asar --overwrite --out=./dist/ --icon=./resources/icons/normal/mac.icns",
     "build:mac-zip": "bash ./mac/installer-zip.sh",
-    "build:mac-arm-zip": "bash ./mac/installer-arm-zip.sh",
-    "prepack:linux": "npm run clean:dist && npm run ts",
-    "pack:linux": "electron-packager . --platform=linux --arch=x64 --asar --overwrite --out=./dist/",
-    "build:deb": "electron-installer-debian --config=./debian/config.json --arch=amd64",
-    "build:deb-checksum": "cd ./dist/installers && sha512sum *.deb > google-chat-electron-deb-SHA512.txt"
   },
   "devDependencies": {
     "@types/auto-launch": "^5.0.5",
@@ -47,9 +38,6 @@
     "electron-store": "^8.2.0",
     "electron-unhandled": "^5.0.0",
     "throttle-debounce": "^5.0.2"
-  },
-  "optionalDependencies": {
-    "electron-installer-debian": "^3.2.0"
   },
   "engineStrict": true,
   "packageManager": "pnpm@7.0.0",
